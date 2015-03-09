@@ -3,8 +3,6 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Event;
 import java.awt.Robot;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import java.awt.event.KeyEvent;
@@ -33,7 +31,7 @@ import javax.swing.KeyStroke;
  */
 
 @SuppressWarnings("serial")
-public class BaseConverterGUI extends JFrame implements ActionListener, KeyListener, MouseListener, FocusListener{
+public class BaseConverterGUI extends JFrame implements KeyListener, MouseListener, FocusListener{
 	
 	public static final int WIDTH = 350;
 	public static final int HEIGHT = 270;
@@ -72,7 +70,7 @@ public class BaseConverterGUI extends JFrame implements ActionListener, KeyListe
 		
 		// Menu
 		JMenuBar bar = new JMenuBar();
-		bar.setBackground(new Color(169,198,236)); // 
+		bar.setBackground(new Color(169,198,236)); 
 //		bar.setBackground(new Color(218,224,241));
 		converter = new JMenu("Converter");
 		converter.setMnemonic('c'); // ALT + C shortcut
@@ -144,11 +142,6 @@ public class BaseConverterGUI extends JFrame implements ActionListener, KeyListe
 
 		this.add(parentPane);
 		this.setVisible(true);
-	}
-
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		
 	}
 
 	@Override

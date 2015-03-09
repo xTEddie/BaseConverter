@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.Scanner;
 
 /**
@@ -59,37 +60,38 @@ public class BaseConverter {
 		return convertDecimalNumber(Integer.parseInt(getDecimalNumber(number, inputBase)), outputBase);
 	}
 	
-	public static void main(String[] args){
-		String number;
-		int inputBase;
-		int outputBase;
-		boolean repeat;
-		Scanner kb;
-		
-		System.out.println("<<<<<----------< Base^ Converter >---------->>>>>");
-		
-		do{
-			repeat = false;
-			kb = new Scanner(System.in);
-			System.out.println("\nPlease enter input base");
-			inputBase = kb.nextInt();
-			
-			System.out.println("Please enter number:");
-			number = kb.next().toUpperCase();
-			
-			System.out.println("Please enter output base:");
-			outputBase = kb.nextInt();
-			
-			System.out.println(BaseConverter.convertBase(number, inputBase, outputBase));
-			
-			System.out.println("\nMore conversion? (Y/N)");
-			if(kb.next().equalsIgnoreCase("y")){
-				repeat = true;
-			}else{
-				System.out.println("\nBye!");
-			}
-		}while(repeat);
-		kb.close();
+	public static void main(String[] args) throws IOException{
+//		String number;
+//		int inputBase;
+//		int outputBase;
+//		boolean repeat;
+//		Scanner kb;
+//		
+//		System.out.println("<<<<<----------< Base^ Converter >---------->>>>>");
+//		
+//		do{
+//			repeat = false;
+//			kb = new Scanner(System.in);
+//			System.out.println("\nPlease enter input base");
+//			inputBase = kb.nextInt();
+//			
+//			System.out.println("Please enter number:");
+//			number = kb.next().toUpperCase();
+//			
+//			System.out.println("Please enter output base:");
+//			outputBase = kb.nextInt();
+//			
+//			System.out.println(BaseConverter.convertBase(number, inputBase, outputBase));
+//			
+//			System.out.println("\nMore conversion? (Y/N)");
+//			if(kb.next().equalsIgnoreCase("y")){
+//				repeat = true;
+//			}else{
+//				System.out.println("\nBye!");
+//			}
+//		}while(repeat);
+//		kb.close();
+		BaseConverterGUI gui = new BaseConverterGUI();
 	}
 }
 

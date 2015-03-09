@@ -9,8 +9,8 @@ import java.io.IOException;
  */
 public class OpenBrowser implements ActionListener {
 	
-//	public static String website = "http://xteddie.noip.me/";
-	public static String website = "http://192.168.1.8";
+	public static String website = "http://xteddie.noip.me/";
+//	public static String website = "http://192.168.1.8";
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
