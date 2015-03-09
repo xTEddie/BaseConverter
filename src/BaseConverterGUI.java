@@ -61,10 +61,10 @@ public class BaseConverterGUI extends JFrame implements KeyListener, MouseListen
 	private int inputBase = -1;
 	private int outputBase = -1;
 	
-	
 	public BaseConverterGUI() throws IOException{
 		super("Base^ Converter");
 		this.setSize(WIDTH, HEIGHT);
+		this.setResizable(false);
 		this.setLocationRelativeTo(null); // Center window
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
