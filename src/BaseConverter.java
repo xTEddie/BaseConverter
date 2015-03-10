@@ -62,7 +62,7 @@ public class BaseConverter {
 	public static String convertBase(String number, int inputBase, int outputBase){
 		// If number is not in the range (2-16) or is null
 //		if(number == null || Integer.parseInt(number) < 2 || Integer.parseInt(number) > 16)
-//			return null;
+//			return null; ????
 		// If input base is 10, convert number to specific base
 		if(inputBase == 10){
 			return convertDecimalNumber(Integer.parseInt(number), outputBase);
