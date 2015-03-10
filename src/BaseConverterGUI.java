@@ -349,11 +349,12 @@ public class BaseConverterGUI extends JFrame implements KeyListener, MouseListen
 
 	@Override
 	public void focusLost(FocusEvent e) {
-		//		System.out.println(e);
+//		System.out.println(e);
 		if(e.getSource().equals(inputBox)){
 			inputBase = inputBox.getSelectedIndex() + 2;
 		}else if(e.getSource().equals(inputText)){
-			number = inputText.getText();
+			if(!inputText.getText().isEmpty())
+				number = inputText.getText();
 		}else if(e.getSource().equals(outputBox)){
 			outputBase = outputBox.getSelectedIndex() + 2;
 		}

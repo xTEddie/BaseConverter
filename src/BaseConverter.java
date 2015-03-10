@@ -60,9 +60,9 @@ public class BaseConverter {
 	}
 	
 	public static String convertBase(String number, int inputBase, int outputBase){
-		// If number is not in the range (2-16) or is null
-//		if(number == null || Integer.parseInt(number) < 2 || Integer.parseInt(number) > 16)
-//			return null; ????
+		// If number is not in the range (2-16) 
+		if(Integer.parseInt(number) < 2 || Integer.parseInt(number) > 16)
+			return null; 
 		// If input base is 10, convert number to specific base
 		if(inputBase == 10){
 			return convertDecimalNumber(Integer.parseInt(number), outputBase);
@@ -75,37 +75,37 @@ public class BaseConverter {
 	}
 	
 	public static void main(String[] args) throws IOException{
-		String number;
-		int inputBase;
-		int outputBase;
-		boolean repeat;
-		Scanner kb;
-		
-		System.out.println("<<<<<----------< Base^ Converter >---------->>>>>");
-		
-		do{
-			repeat = false;
-			kb = new Scanner(System.in);
-			System.out.println("\nPlease enter input base");
-			inputBase = kb.nextInt();
-			
-			System.out.println("Please enter number:");
-			number = kb.next().toUpperCase();
-			
-			System.out.println("Please enter output base:");
-			outputBase = kb.nextInt();
-			
-			System.out.println(BaseConverter.convertBase(number, inputBase, outputBase));
-			
-			System.out.println("\nMore conversion? (Y/N)");
-			if(kb.next().equalsIgnoreCase("y")){
-				repeat = true;
-			}else{
-				System.out.println("\nBye!");
-			}
-		}while(repeat);
-		kb.close();
-//		BaseConverterGUI gui = new BaseConverterGUI();
+//		String number;
+//		int inputBase;
+//		int outputBase;
+//		boolean repeat;
+//		Scanner kb;
+//		
+//		System.out.println("<<<<<----------< Base^ Converter >---------->>>>>");
+//		
+//		do{
+//			repeat = false;
+//			kb = new Scanner(System.in);
+//			System.out.println("\nPlease enter input base");
+//			inputBase = kb.nextInt();
+//			
+//			System.out.println("Please enter number:");
+//			number = kb.next().toUpperCase();
+//			
+//			System.out.println("Please enter output base:");
+//			outputBase = kb.nextInt();
+//			
+//			System.out.println(BaseConverter.convertBase(number, inputBase, outputBase));
+//			
+//			System.out.println("\nMore conversion? (Y/N)");
+//			if(kb.next().equalsIgnoreCase("y")){
+//				repeat = true;
+//			}else{
+//				System.out.println("\nBye!");
+//			}
+//		}while(repeat);
+//		kb.close();
+		BaseConverterGUI gui = new BaseConverterGUI();
 	}
 }
 
