@@ -7,6 +7,7 @@ import java.util.Scanner;
  *
  */
 
+@SuppressWarnings("unused")
 public class BaseConverter {
 	
 	private static final String hex = "0123456789ABCDEF";
@@ -17,6 +18,23 @@ public class BaseConverter {
 	
 	public static int toHex(String c){
 		return hex.indexOf(c);
+	}
+	
+	
+	public static boolean isValidBase(String str, int base){
+		if(str.isEmpty() || str == null)
+			return false;
+		char[] chars = str.toUpperCase().toCharArray();
+		for(int i = 0; i < chars.length; i++){
+			// If value is higher than base for value from 0 to 9
+			if((int)chars[i] >= 48 && (int)chars[i] <= 57 && (int)chars[i] - 48 >= base)
+				return false; 
+			// If value is higher than base for value from A to F
+			else if((int)chars[i] >= 65 && (int)chars[i] <= 70 && BaseConverter.toHex(Character.toString(chars[i])) >= base){
+				return false;
+			}
+		}
+		return true;
 	}
 	
 	public static String convertDecimalNumber(int decimalNumber, int base){
@@ -60,9 +78,6 @@ public class BaseConverter {
 	}
 	
 	public static String convertBase(String number, int inputBase, int outputBase){
-		// If number is not in the range (2-16) 
-		if(Integer.parseInt(number) < 2 || Integer.parseInt(number) > 16)
-			return null; 
 		// If input base is 10, convert number to specific base
 		if(inputBase == 10){
 			return convertDecimalNumber(Integer.parseInt(number), outputBase);
@@ -91,6 +106,7 @@ public class BaseConverter {
 //			
 //			System.out.println("Please enter number:");
 //			number = kb.next().toUpperCase();
+//			System.out.println(BaseConverter.isValidBase(number, inputBase));
 //			
 //			System.out.println("Please enter output base:");
 //			outputBase = kb.nextInt();
@@ -106,6 +122,10 @@ public class BaseConverter {
 //		}while(repeat);
 //		kb.close();
 		BaseConverterGUI gui = new BaseConverterGUI();
+		
+//		Scanner kb = new Scanner(System.in);
+//		String str = kb.next();
+//		System.out.println(validateBase(str, 16));
 	}
 }
 

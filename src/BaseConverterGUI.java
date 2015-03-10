@@ -57,7 +57,7 @@ public class BaseConverterGUI extends JFrame implements KeyListener, MouseListen
 	private JTextField inputText;
 	private JComboBox<String> outputBox;
 	private JTextField outputText;
-	private String number = null;
+	private String number = "";
 	private int inputBase = -1;
 	private int outputBase = -1;
 	private boolean vk1_IsPressed = false;
@@ -209,8 +209,11 @@ public class BaseConverterGUI extends JFrame implements KeyListener, MouseListen
 			}
 
 			// Convert
-			if(number != null && inputBase != -1 && outputBase != -1){	
-				outputText.setText(BaseConverter.convertBase(number, inputBase, outputBase));
+			if(!number.isEmpty() && inputBase != -1 && outputBase != -1){
+				if(BaseConverter.isValidBase(number, inputBase))
+					outputText.setText(BaseConverter.convertBase(number, inputBase, outputBase));
+				else
+					outputText.setText("Invalid");
 			}
 		}else if(e.getKeyCode() == KeyEvent.VK_2){
 			if(vk1_IsPressed && (System.currentTimeMillis()-vk1Pressed) <= 100 && e.getSource().equals(inputBox)){
@@ -344,6 +347,7 @@ public class BaseConverterGUI extends JFrame implements KeyListener, MouseListen
 	@Override
 	public void focusGained(FocusEvent e) {
 		//		System.out.println(e.getSource());
+//		System.out.println(number.isEmpty());
 
 	}
 
@@ -360,8 +364,11 @@ public class BaseConverterGUI extends JFrame implements KeyListener, MouseListen
 		}
 
 		// Convert
-		if(number != null && inputBase != -1 && outputBase != -1){
-			outputText.setText(BaseConverter.convertBase(number, inputBase, outputBase));
+		if(!number.isEmpty() && inputBase != -1 && outputBase != -1){
+			if(BaseConverter.isValidBase(number, inputBase))
+				outputText.setText(BaseConverter.convertBase(number, inputBase, outputBase));
+			else
+				outputText.setText("Invalid");
 		}
 
 	}
